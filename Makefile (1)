@@ -1,0 +1,22 @@
+CFLAGS = -Wno-implicit-function-declaration
+
+all: final
+
+final: main.o hello.o
+	@echo "linking the final resulte"
+	gcc $(CFLAGS) main.o hello.o -o final
+	@chmod +x final
+
+main.o: main.c
+	@echo "Compaling tha main file"
+	gcc $(CFLAGS) -c main.c
+
+hello.o: hello.c
+	@echo "Compiling the hello file"
+	gcc $(CFALGS) -c hello.c
+
+clean:
+	@echo "Removind everything but the source files"
+	rm main.o hello.o final
+
+
